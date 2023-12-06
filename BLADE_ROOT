@@ -1,0 +1,32 @@
+import os
+
+global_config(
+    default_visibility = ['PUBLIC'],
+    test_timeout = 600,
+)
+
+cc_test_config(
+    gtest_libs = ['#gtest', '#pthread'],
+    gtest_main_libs = '#gtest_main',
+)
+
+java_config(
+    java_home = os.environ['JAVA_HOME'],
+    source_encoding = 'utf-8',
+)
+
+java_binary_config(
+    one_jar_boot_jar = 'thirdparty/one-jar/one-jar-boot-0.97.jar'
+)
+
+scala_config(
+    scala_home = os.environ['SCALA_HOME'],
+    source_encoding = 'utf-8',
+)
+
+scala_test_config(
+    scalatest_libs = [
+        '//thirdparty/scala:scala-xml_2.13',
+        '//thirdparty/scalatest:scalatest_2.13',
+    ],
+)
