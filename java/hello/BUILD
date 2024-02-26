@@ -9,6 +9,7 @@ java_library(
     deps = ':Say',
 )
 
+# 方法1
 java_binary(
     name = 'HelloWorld',
     srcs = 'HelloWorld.java',
@@ -16,6 +17,7 @@ java_binary(
     main_class = 'hello.HelloWorld',
 )
 
+# 方法2
 java_fat_library(
     name = 'HelloWorldFat',
     srcs = 'HelloWorld.java',
