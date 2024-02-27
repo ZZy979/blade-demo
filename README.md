@@ -10,7 +10,8 @@ Blade构建工具：<https://github.com/chen3feng/blade-build>
 * [resource_library示例](resource_demo)
 
 ## Protobuf
-见[Protocol Buffers入门教程](https://zzy979.github.io/posts/protocol-buffers-tutorial/) 3.1节
+* [Demo](protobuf_demo)
+* [Protocol Buffers入门教程](https://zzy979.github.io/posts/protocol-buffers-tutorial/) 3.1节
 
 ## Java
 * [Hello World](java/hello)

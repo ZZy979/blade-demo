@@ -30,3 +30,9 @@ scala_test_config(
         '//thirdparty/scalatest:scalatest_2.13',
     ],
 )
+
+proto_library_config(
+    protoc = 'protoc',
+    protobuf_libs = ['#protobuf', '#pthread'],
+    protobuf_java_libs = ['//thirdparty/protobuf:protobuf-java'],
+)
