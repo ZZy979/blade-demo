@@ -5,6 +5,11 @@ global_config(
     test_timeout = 600,
 )
 
+cc_config(
+    cflags = '-std=c11',
+    cxxflags = '-std=c++17',
+)
+
 cc_test_config(
     gtest_libs = ['#gtest', '#pthread'],
     gtest_main_libs = '#gtest_main',
