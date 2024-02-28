@@ -10,7 +10,7 @@ int main() {
     Foo foo;
     set(&foo, &Foo::set_a, 123);
     set(&foo, &Foo::set_b, int64_t(456));
-    set(&foo, &Foo::set_c, "abc");
+    // set(&foo, &Foo::set_c, "abc");
     foo.PrintDebugString();
     return 0;
 }

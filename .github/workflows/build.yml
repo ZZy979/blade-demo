@@ -1,0 +1,73 @@
+name: Blade Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Ninja
+        uses: ashutoshvarma/setup-ninja@v1.1
+        with:
+          version: 1.10.2
+      - name: Setup Python 2.7
+        run: sudo ln -sf /usr/bin/python2.7 /usr/bin/python
+      - name: Setup Blade
+        run: |
+          cd $HOME
+          git clone -b v2.0 https://github.com/chen3feng/blade-build.git
+          cd blade-build
+          ./install
+          echo "$HOME/bin" >> $GITHUB_PATH
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+      - name: Setup Scala
+        uses: coursier/setup-action@v1
+        with:
+          apps: scala:2.13.13 scalac:2.13.13
+      - name: Set SCALA_HOME
+        run: echo "SCALA_HOME=$HOME/cs" >> $GITHUB_ENV
+      - name: Setup GoogleTest
+        run: |
+          cd $HOME
+          git clone -b v1.14.0 https://github.com/google/googletest.git
+          cd googletest
+          cmake -B cmake-build -D CMAKE_BUILD_TYPE=Release
+          cmake --build cmake-build -j 4
+          sudo cmake --install cmake-build
+      - name: Setup Protocol Buffers
+        run: |
+          cd $HOME
+          git clone -b v3.20.3 https://github.com/protocolbuffers/protobuf.git
+          cd protobuf
+          git submodule update --init --recursive
+          cmake -S cmake -B cmake-build -D CMAKE_CXX_STANDARD=14 -D CMAKE_BUILD_TYPE=Release
+          cmake --build cmake-build -j 4
+          sudo cmake --install cmake-build
+      - name: Print Versions
+        run: |
+          ninja --version
+          python --version
+          blade --version
+          g++ --version
+          protoc --version
+          echo $JAVA_HOME
+          java -version
+          mvn --version
+          echo $SCALA_HOME
+          scala -version
+          ls /usr/local/include
+          ls /usr/local/lib
+      - name: Build
+        run: blade build ...
+      - name: Test
+        run: blade test ...
