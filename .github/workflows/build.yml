@@ -9,29 +9,31 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Setup Ninja
         uses: ashutoshvarma/setup-ninja@v1.1
         with:
           version: 1.10.2
-      - name: Setup Python 2.7
-        run: sudo ln -sf /usr/bin/python2.7 /usr/bin/python
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
       - name: Setup Blade
         run: |
           cd $HOME
-          git clone -b v2.0 https://github.com/chen3feng/blade-build.git
+          git clone -b v2.1.0 https://github.com/blade-build/blade-build.git
           cd blade-build
           ./install
           echo "$HOME/bin" >> $GITHUB_PATH
       - name: Setup Java JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '8'
           distribution: 'temurin'
       - name: Setup Scala
-        uses: coursier/setup-action@v1
+        uses: coursier/setup-action@v3
         with:
           apps: scala:2.13.13 scalac:2.13.13
       - name: Set SCALA_HOME
