@@ -20,6 +20,11 @@ java_config(
     source_encoding = 'utf-8',
 )
 
+# Useless until Blade 3.0.0
+java_test_config(
+    junit_libs = '//thirdparty/junit:junit4',
+)
+
 java_binary_config(
     one_jar_boot_jar = 'thirdparty/one-jar/one-jar-boot-0.97.jar'
 )
