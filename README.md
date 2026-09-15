@@ -19,6 +19,7 @@ Blade构建工具：<https://github.com/chen3feng/blade-build>
 
 ## Scala
 * [Hello World](scala/hello)
+* [依赖Maven库示例](scala/random_string)
 
 ## Python
 * [Hello World](python/hello)

@@ -12,3 +12,8 @@ maven_jar(
     name = 'scalatest_2.13',
     id = 'org.scalatest:scalatest-app_2.13:3.2.15',
 )
+
+maven_jar(
+    name = 'commons-lang3',
+    id = 'org.apache.commons:commons-lang3:3.12.0',
+)
