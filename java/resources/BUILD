@@ -13,6 +13,6 @@ java_test(
     srcs = 'ResourceReaderTest.java',
     deps = [
         ':ResourceReader',
-        '//thirdparty/junit:junit4',
+        '//thirdparty/java:junit4',
     ],
 )

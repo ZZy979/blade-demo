@@ -20,7 +20,7 @@ java_test(
     srcs = 'FactorialTest.java',
     deps = [
         ':FactorialJava',
-        '//thirdparty/junit:junit4',
+        '//thirdparty/java:junit4',
     ],
 )
 

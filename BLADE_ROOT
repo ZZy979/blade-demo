@@ -22,7 +22,7 @@ java_config(
 
 # Useless until Blade 3.0.0
 java_test_config(
-    junit_libs = '//thirdparty/junit:junit4',
+    junit_libs = '//thirdparty/java:junit4',
 )
 
 java_binary_config(
@@ -36,8 +36,8 @@ scala_config(
 
 scala_test_config(
     scalatest_libs = [
-        '//thirdparty/scala:scala-xml_2.13',
-        '//thirdparty/scalatest:scalatest_2.13',
+        '//thirdparty/java:scala-xml_2.13',
+        '//thirdparty/java:scalatest_2.13',
     ],
 )
 
