@@ -4,7 +4,7 @@ java_library(
     resources = [
         'data/foo.txt',
         '//package_demo/conf/hello_world.conf',
-        ('//foo/a.txt', 'data/a.txt'),
+        ('//custom_rule_demo/a.txt', 'data/a.txt'),
     ],
 )
 

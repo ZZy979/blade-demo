@@ -15,6 +15,7 @@ Blade构建工具：<https://github.com/chen3feng/blade-build>
 
 ## Java
 * [Hello World](java/hello)
+* [读取资源文件示例](java/resources)
 
 ## Scala
 * [Hello World](scala/hello)
@@ -30,4 +31,4 @@ Blade构建工具：<https://github.com/chen3feng/blade-build>
 
 ## 其他
 * [文件打包示例](package_demo)
-* [自定义构建规则示例](foo)
+* [自定义构建规则示例](custom_rule_demo)
